@@ -1,0 +1,13 @@
+C = imread('circles.png');
+SE = strel('disk', 3);
+D = double(C);
+C1 = C;
+while any(C1(:))
+C1 = imerode(C1, SE);
+D = D + C1;
+end
+D = rescale(D);
+% figure, montage({C, D}, 'ThumbnailSize', [])
+Ifill = imfill(D, 'holes')
+figure, surf(Ifill), shading interp
+% height iig -1 bolgoh heregtei, zovhon basins iig haruulah
