@@ -8,7 +8,7 @@ C1 = imerode(C1, SE);
 D = D + C1;
 end
 D = rescale(D);
-
+Ifill = imfill(D, 'holes')
 localmaximum = imdilate(D, ones(3));
 test = Ifill-localmaximum-D
 figure, surf(test), shading interp
